@@ -1,0 +1,59 @@
+# ==============================================================
+# .gitignore para projetos Unity (Robô Perdido — Etapa 7)
+# Versiona apenas Assets/, Packages/ e ProjectSettings/.
+# ==============================================================
+
+# Pastas geradas pelo Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+
+# Saída de Asset/Addressable
+/[Aa]ssets/[Aa]ssetStoreTools*
+/[Aa]ssets/[Pp]lugins/[Ee]ditor/JetBrains*
+.consulo/
+
+# Arquivos de solução/IDE (gerados a partir do projeto)
+ExportedObj/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+.vs/
+.vscode/
+.idea/
+
+# Crash reports
+sysinfo.txt
+crashlitics-build.properties
+
+# Builds e logs locais
+*.apk
+*.aab
+*.unitypackage
+*.app
+compile*.log
+build.log
+
+# Pasta de auto-recuperacao do editor
+/[Aa]ssets/_[Rr]ecovery/
+/[Aa]ssets/_[Rr]ecovery.meta
+
+# OS
+.DS_Store
+Thumbs.db
