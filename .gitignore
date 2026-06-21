@@ -1,8 +1,3 @@
-# ==============================================================
-# .gitignore para projetos Unity (Robô Perdido — Etapa 7)
-# Versiona apenas Assets/, Packages/ e ProjectSettings/.
-# ==============================================================
-
 # Pastas geradas pelo Unity
 /[Ll]ibrary/
 /[Tt]emp/
@@ -18,7 +13,7 @@
 /[Aa]ssets/[Pp]lugins/[Ee]ditor/JetBrains*
 .consulo/
 
-# Arquivos de solução/IDE (gerados a partir do projeto)
+# Arquivos de solução/IDE
 ExportedObj/
 *.csproj
 *.unityproj
