@@ -1,0 +1,74 @@
+JOGO: Robô Perdido — Demo
+EQUIPE: Emily Frade dos Santos (23.1.8001), Luís Eduardo Bastos Rocha (23.1.8095)
+DISCIPLINA: Design e Desenvolvimento de Jogos — 2026/1
+
+================================================================
+== DOWNLOAD E INSTALAÇÃO ==
+================================================================
+Link para jogar: https://emilyfrade.itch.io/robo-perdido-demo
+Plataforma: Web (navegador) — build WebGL, roda direto no navegador, sem instalação.
+Requisitos:
+  - Navegador atualizado com suporte a WebGL 2.0 (Chrome, Firefox ou Edge recentes)
+  - Computador com teclado e mouse (não otimizado para celular)
+
+Passo a passo:
+  1. Abra o link acima no navegador.
+  2. Clique em "Run game" (botão de play) e aguarde a barra de carregamento.
+  3. Clique na tela do jogo para o mouse ser capturado (mouse-look).
+  4. Use o botão de tela cheia (canto inferior direito da moldura do itch) para uma melhor experiência.
+  5. Pressione ESC para liberar o mouse da tela do jogo quando precisar.
+
+================================================================
+== COMO JOGAR ==
+================================================================
+Objetivo:
+  Você é o M-37, um pequeno robô de manutenção preso na fábrica Ferralis-9.
+  A BATERIA é a sua VIDA: cada ação gasta energia. O jogo tem 4 FASES (setores):
+  1) Montagem, 2) Caldeiras, 3) Subsolo Químico e 4) Servidores. Cada setor é um
+  MAPA DE SALAS ligadas por portas: em cada sala, RESOLVA O PUZZLE (E) para abrir
+  a porta e seguir. Na sala final, pegue a CHAVE do setor para abrir a PORTA FINAL
+  (ela não abre sem a chave) e chegar à SAÍDA, aí começa a próxima fase. No último
+  setor (Servidores), com as 4 chaves, o PORTÃO EXTERNO se abre e você escapa. Se a
+  bateria zerar (0%), reinicia o setor atual.
+
+Classificação indicativa: LIVRE (tensão/suspense leves; sem violência explícita).
+
+Controles:
+  - Mouse ................. Girar a câmera / olhar ao redor do robô
+  - WASD / Setas .......... Mover (relativo à câmera; gasta pouca bateria)
+  - Shift ................. Correr (rápido, gasta mais e faz BARULHO)
+  - C / Ctrl .............. Agachar (lento, porém silencioso)
+  - E ..................... Interagir / resolver o puzzle da sala
+  - ESC ................... Pausar (ou fechar um popup de puzzle)
+  - Espaço ................ Avançar (na tela de "setor concluído")
+  - R ..................... Reiniciar o setor atual
+  - M ..................... Voltar ao menu (nas telas de fim)
+  - F11 / Alt+Enter ....... Tela cheia / janela
+
+Como resolver os puzzles (aperte E perto do console da sala):
+  - Botão: abre a porta na hora.
+  - Ligar cabos (popup): clique numa cor à esquerda e na MESMA cor à direita.
+  - Múltipla escolha (popup): clique na resposta certa.
+  - Limpar poeira (popup): passe o mouse com o botão pressionado para limpar os contatos.
+  - Porta final: aperte E nela depois de pegar a CHAVE do setor.
+
+Dicas para o testador:
+  - Comece pelo MENU > JOGAR. Use o MOUSE para olhar e siga as SETAS no chão até a porta.
+  - A HUD mostra "BATERIA = VIDA": observe a barra caindo e economize energia.
+  - Suba pela RAMPA até a plataforma elevada de cada nível para pegar uma célula de energia.
+  - Fase 1 (Montagem): resolva o puzzle do console (E); AGACHE (C) atrás das caixas para fugir do drone.
+  - Fase 2 (Caldeiras): passe entre os JATOS DE VAPOR quando eles fecham (timing).
+  - Fase 3 (Subsolo): está escuro e tem drones — use coberturas e desvie das poças.
+  - Fase 4 (Servidores): resolva os puzzles, pegue a chave e abra o Portão Externo.
+
+================================================================
+== VÍDEOS ==
+================================================================
+Gameplay no YouTube: https://youtu.be/qfNR4nrBj64
+Vídeo original: https://drive.google.com/file/d/1GxHm0Tl5Rog-_Sp0KzV5Gtb0JKq6gQvl/view?usp=sharing
+
+================================================================
+== CONTATO ==
+================================================================
+Emily Frade dos Santos — emily.santos@aluno.ufop.edu.br
+Luís Eduardo Bastos Rocha — luis.bastos@aluno.ufop.edu.br

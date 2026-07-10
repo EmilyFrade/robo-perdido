@@ -1,15 +1,17 @@
-# Robô Perdido - Etapa 7: Vertical Slice
+# Robô Perdido — Demo
 
-Protótipo jogável do core gameplay loop de _Robô Perdido_, um puzzle-aventura 3D em
-terceira pessoa. Você controla a Unidade M-37, um pequeno robô de manutenção preso na
-fábrica Ferralis-9. A bateria funciona como vida: cada ação gasta energia, então cada
-passo é uma decisão.
+Demo jogável de _Robô Perdido_, um puzzle-aventura 3D em terceira pessoa. Você controla a
+Unidade M-37, um pequeno robô de manutenção preso na fábrica Ferralis-9. A bateria funciona
+como vida: cada ação gasta energia, então cada passo é uma decisão.
 
-> Esta é uma prova de conceito, não uma demo. Tudo é placeholder geométrico: sem arte,
-> som ou narrativa final. 
+> Jogo de ponta a ponta: **classificação indicativa → menu → 4 fases → portão final → fim**.
+> Cada fase é um setor: pegue a chave, saia pela porta e a próxima fase começa. A arte
+> (texturas, props e o robô), o áudio e os 4 mapas são **gerados por código** (sem assets
+> binários no repositório).
 
 - **Engine:** Unity 6 (6000.4.11f1) · Render Pipeline Built-in · C#
-- **Setor implementado:** Montagem (Setor 1)
+- **Setores (fases):** 1) Montagem · 2) Caldeiras · 3) Subsolo Químico · 4) Servidores
+- **Classificação indicativa:** **Livre** (tensão/suspense leves; sem violência explícita)
 - **Autores:** Emily Frade dos Santos (23.1.8001) · Luís Eduardo Bastos Rocha (23.1.8095)
 - **Disciplina:** Design e Desenvolvimento de Jogos — UFOP
 
@@ -17,61 +19,67 @@ passo é uma decisão.
 
 ## Vídeo de demonstração
 
-Gameplay do protótipo de ponta a ponta no Setor Montagem:
-
-▶️ **[Assistir no YouTube](https://youtu.be/_a3xo_OouDw)**
+▶️ **[YouTube](https://youtu.be/qfNR4nrBj64)** _(gameplay da demo)_
 
 ## Como rodar
 
-Há duas formas de jogar: baixar o executável pronto (mais rápido) ou abrir o projeto no Unity.
+Há duas formas de jogar: no navegador (mais rápido) ou abrindo o projeto no Unity.
 
-### Opção 1 — Baixar o executável (recomendado, apenas Windows)
+### Opção 1 — Jogar no navegador (recomendado)
 
-1. Acesse a página no itch.io: **[emilyfrade.itch.io/robo-perdido](https://emilyfrade.itch.io/robo-perdido)**.
-2. Baixe o pacote (`.zip`).
-3. Extraia a pasta.
-4. Execute o arquivo `RoboPerdido.exe`.
+1. Acesse a página no itch.io: **[emilyfrade.itch.io/robo-perdido-demo](https://emilyfrade.itch.io/robo-perdido-demo)**.
+2. Clique em **Run game** e aguarde o carregamento (build WebGL).
+3. Clique na tela para o mouse ser capturado (mouse-look) e use o botão de tela cheia.
 
-> Não precisa instalar o Unity nem clonar o repositório.
+> Não precisa instalar o Unity, baixar nada nem clonar o repositório. Requer um navegador com suporte a WebGL 2.0.
 
 ### Opção 2 — Abrir no Unity (a partir do código-fonte)
 
 1. Instale o **Unity Hub** e o editor **Unity 6000.4.11f1** (ou compatível 6000.x).
-2. Clone este repositório.
-3. No Unity Hub: **Add → From disk** e selecione a pasta `RoboPerdido/`.
-4. Abra a cena `Assets/Scenes/SectorMontagem.unity`.
-5. Pressione **Play**.
+2. Clone este repositório e, no Unity Hub, **Add → From disk**, selecionando a pasta do projeto.
+3. Abra a cena `Assets/Scenes/SectorMontagem.unity` e pressione **Play**.
 
-> A fase inteira é montada em tempo de execução pelo script `Bootstrap.cs`. A cena salva
-> contém apenas um objeto (`GameBootstrap`); por isso o repositório não guarda assets
-> binários pesados e o protótipo é totalmente reproduzível.
+> Cada fase é montada em tempo de execução pelo `Bootstrap.cs` conforme `GameManager.currentLevel`.
+> A cena salva contém apenas o objeto `GameBootstrap`; ao concluir um setor, a cena é recarregada
+> e o próximo é montado. Por isso o repositório não guarda assets binários pesados.
 
 ## Controles
 
-| Tecla               | Ação                                              |
-| ------------------- | ------------------------------------------------- |
-| `WASD` / setas      | Mover (anda devagar, gasta pouca bateria)         |
-| `Shift`             | Correr (mais rápido, gasta mais, faz **barulho**) |
-| `C` / `Ctrl`        | Agachar (lento, porém **silencioso**)             |
-| `E`                 | Interagir / conectar painel                       |
-| `R`                 | Reiniciar o setor                                 |
-| `F11` / `Alt+Enter` | Alternar tela cheia / janela                      |
+| Tecla               | Ação                                           |
+|---------------------|------------------------------------------------|
+| Mouse               | Girar a câmera / olhar ao redor do robô        |
+| `WASD` / setas      | Mover (relativo à câmera; gasta pouca bateria) |
+| `Shift`             | Correr (mais rápido, gasta mais, faz barulho)  |
+| `C` / `Ctrl`        | Agachar (lento, porém silencioso)              |
+| `E`                 | Interagir (resolver o puzzle da sala)          |
+| `ESC`               | Pausar / retomar                               |
+| `Espaço`            | Avançar (na tela de "setor concluído")         |
+| `R`                 | Reiniciar o setor atual                        |
+| `M`                 | Voltar ao menu (nas telas de fim)              |
+| `F11` / `Alt+Enter` | Alternar tela cheia / janela                   |
 
-## Objetivo da demo
+## Objetivo
 
-Atravessar o Setor Montagem economizando bateria: empurrar a caixa para abrir o portão,
-passar pela sala do drone usando as coberturas, pegar a **Chave 1/3**, conectar o cabo no
-painel (`E`) para abrir a porta e chegar à **Saída**. Bateria a **0% = derrota**.
+Atravessar os **4 setores** economizando bateria. Cada setor é um **mapa de salas conectadas
+por portas**: em cada sala, **resolva o puzzle** para liberar a porta e seguir. Na sala final,
+pegue a **Chave** do setor para abrir a **porta final** (ela não abre sem a chave) e chegar à
+**Saída** — a próxima fase começa. No último setor (Servidores), com as 4 chaves, o **Portão
+Externo** se abre e você escapa de Ferralis-9. Bateria a **0% = derrota** (reinicia o setor).
 
-## Mecânicas implementadas (core loop)
+## Os quatro setores
 
-- Sistema de **bateria como vida** com custos crescentes (parado < andar < correr < empurrar).
-- **Mover / correr / agachar** com feedback de velocidade, ruído e gasto.
-- **Empurrar/puxar** caixas físicas (Puzzle 1).
-- **Interagir/conectar** painel que abre a saída (Puzzle 2).
-- **Coletar células de energia** (recarga / alívio do loop).
-- **Drone de patrulha** com rota fixa, detecção por **visão (cone + linha de visada)** e
-  **audição** (se você correr por perto). Coberturas bloqueiam a visão.
-- **Poça corrosiva** que drena bateria (ensino visual de perigo).
-- **HUD** com bateria, contador de chaves, setor e tempo.
-- **Vitória / Derrota** e reinício.
+Cada nível é uma **grade de 5 salas** com caminho que vira (formas diferentes por nível) e uma
+**rampa** para uma plataforma elevada. Cada sala tem um puzzle e props temáticos.
+
+| Fase | Setor | Tema / perigos | Props característicos |
+| --- | --- | --- | --- |
+| 1 | **Montagem** | drone (furtividade), poça corrosiva | mesas, cadeiras, computadores, braços robóticos, **esteira** |
+| 2 | **Caldeiras** | **jatos de vapor** (fumaça real, temporizados) | tanques de caldeira, bocais |
+| 3 | **Subsolo Químico** | escuro, poças corrosivas, **drones** (furtividade) | tonéis de químico, coberturas |
+| 4 | **Servidores** | portão final, drone, narrativa por hologramas | **racks com LEDs**, hologramas, estações |
+
+### Puzzles das salas
+
+Cada porta de sala abre ao resolver um desafio: **apertar botão**, **ligar cabos** (popup),
+**responder múltipla escolha** (popup) e **limpar a poeira dos contatos** (popup). A porta
+final de cada setor é um **portão de chave** — só abre depois de coletar a chave do setor.
