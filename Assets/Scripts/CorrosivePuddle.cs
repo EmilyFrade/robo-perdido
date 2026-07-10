@@ -10,7 +10,9 @@ namespace RoboPerdido
     [RequireComponent(typeof(Collider))]
     public class CorrosivePuddle : MonoBehaviour
     {
-        public float damagePerSecond = 14f;
+        // Ajuste do playtest (Etapa 7): a poca matava quase instantaneamente (14/s). Reduzido
+        // para um valor que AVISA antes de matar, dando tempo de o jogador sair.
+        public float damagePerSecond = 6f;
 
         void OnTriggerStay(Collider other)
         {
@@ -18,7 +20,11 @@ namespace RoboPerdido
             if (battery == null) return;
 
             battery.Drain(damagePerSecond * Time.deltaTime);
-            if (GameManager.Instance != null) GameManager.Instance.FlagHazard("Poca corrosiva! Bateria caindo");
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.FlagHazard("Poça corrosiva! Saia já — bateria caindo");
+                GameManager.Instance.SetDeathCause("você ficou tempo demais na poça corrosiva.");
+            }
         }
     }
 }
