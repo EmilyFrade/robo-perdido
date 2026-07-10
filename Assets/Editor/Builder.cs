@@ -20,7 +20,7 @@ namespace RoboPerdido.EditorTools
             const string exe = dir + "/RoboPerdido.exe";
             System.IO.Directory.CreateDirectory(dir);
 
-            PlayerSettings.productName = "Robo Perdido - Setor Montagem";
+            PlayerSettings.productName = "Robô Perdido";
             PlayerSettings.companyName = "UFOP - DDJ";
 
             // Janela: inicia em modo janela (mostra os botoes de maximizar/minimizar),
