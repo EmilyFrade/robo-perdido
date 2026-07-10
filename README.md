@@ -23,6 +23,19 @@ Gameplay do protótipo de ponta a ponta no Setor Montagem:
 
 ## Como rodar
 
+Há duas formas de jogar: baixar o executável pronto (mais rápido) ou abrir o projeto no Unity.
+
+### Opção 1 — Baixar o executável (recomendado, apenas Windows)
+
+1. Acesse a página no itch.io: **[emilyfrade.itch.io/robo-perdido](https://emilyfrade.itch.io/robo-perdido)**.
+2. Baixe o pacote (`.zip`).
+3. Extraia a pasta.
+4. Execute o arquivo `RoboPerdido.exe`.
+
+> Não precisa instalar o Unity nem clonar o repositório.
+
+### Opção 2 — Abrir no Unity (a partir do código-fonte)
+
 1. Instale o **Unity Hub** e o editor **Unity 6000.4.11f1** (ou compatível 6000.x).
 2. Clone este repositório.
 3. No Unity Hub: **Add → From disk** e selecione a pasta `RoboPerdido/`.
