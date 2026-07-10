@@ -26,8 +26,11 @@ namespace RoboPerdido
         Transform player;
         BatterySystem playerBattery;
         RobotController playerCtrl;
+        public Renderer eyeOverride;     // olho/câmera do drone (definido pelo Bootstrap)
+        public Light eyeLightOverride;
         Renderer eyeRend;
         Light eyeLight;
+        AudioSource rotor;
 
         public void Init(Transform p, BatterySystem b, RobotController c)
         {
@@ -36,8 +39,9 @@ namespace RoboPerdido
 
         void Start()
         {
-            eyeRend = GetComponentInChildren<Renderer>();
-            eyeLight = GetComponentInChildren<Light>();
+            eyeRend = eyeOverride != null ? eyeOverride : GetComponentInChildren<Renderer>();
+            eyeLight = eyeLightOverride != null ? eyeLightOverride : GetComponentInChildren<Light>();
+            rotor = GetComponent<AudioSource>();
         }
 
         void Update()
@@ -97,7 +101,11 @@ namespace RoboPerdido
                     playerBattery.Drain(damageOnSpot);
                     lastHit = Time.time;
                     if (GameManager.Instance != null)
+                    {
                         GameManager.Instance.FlagHazard(seen ? "Drone te detectou! -bateria" : "Drone te ouviu! -bateria");
+                        GameManager.Instance.SetDeathCause("você foi detectado por um drone de patrulha.");
+                    }
+                    if (SoundManager.Instance != null) SoundManager.Instance.Alert();
                 }
             }
         }
@@ -112,6 +120,7 @@ namespace RoboPerdido
                 eyeRend.material.SetColor("_EmissionColor", c * 2f);
             }
             if (eyeLight != null) eyeLight.color = c;
+            if (rotor != null) rotor.pitch = Mathf.Lerp(rotor.pitch, Alerted ? 1.35f : 1f, Time.deltaTime * 3f);
         }
     }
 }
